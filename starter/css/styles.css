@@ -1,0 +1,73 @@
+/* ----- Base / tipografía ----- */
+:root{
+  --gold: #d9c866;         /* dorado del título */
+  --ink: #222;             /* texto principal */
+  --cream: #f5f1e6;        /* fondo crema de los bloques */
+}
+
+body{
+  font-family: Georgia, "Times New Roman", serif; /* look clásico como la captura */
+  color: var(--ink);
+  background: #fff;
+  line-height: 1.7;
+}
+
+/* ----- Header (blanco + título dorado centrado) ----- */
+header{
+  background: #fff;
+  border-top: 1px solid #cfcfcf;
+  border-bottom: 1px solid #dcdcdc; /* ligera línea bajo el header */
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+header h1{
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4vw, 3.5rem); /* grande y responsive */
+  color: var(--gold);
+  letter-spacing: .5px;
+}
+
+/* ----- Franjas Parallax ----- */
+.parallax{
+  background-image: url("../img/fondo.webp");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 220px;          /* franja como en la imagen */
+}
+
+/* Fallback móvil (iOS/Android suelen ignorar fixed) */
+@media (max-width: 768px){
+  .parallax{ background-attachment: scroll; }
+}
+
+/* ----- Bloques de contenido (crema) ----- */
+section{
+  margin: 0 auto;
+  padding: 2.25rem 1.5rem;
+  background: var(--cream);
+}
+
+section + .parallax{ margin: 0; } /* unión limpia entre bloques */
+
+/* Títulos de sección */
+section h3{
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* Texto de sección */
+section p{
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+}
+
+/* ----- Imagen final a ancho completo (si la mantienes) ----- */
+img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
